@@ -14,9 +14,7 @@ const ProductCards = () => {
 	const dispatch = useDispatch();
 	const { key } = useSelector((state) => state.search);
 	const { sort } = useSelector((state) => state.sort);
-	const onClick = (e) => {
-		console.log(e);
-	};
+
 	useEffect(() => {
 		dispatch(getProduct(key));
 	}, [dispatch, key]);

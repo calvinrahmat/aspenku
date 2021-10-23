@@ -1,8 +1,8 @@
 import React from 'react';
-import { FaFilter } from 'react-icons/fa';
+
 import './Sort.scoped.css';
 import { Dropdown } from 'react-bootstrap';
-import { DropdownButton } from 'react-bootstrap';
+
 import { useDispatch } from 'react-redux';
 import { sortSuccess } from './sortSlice';
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import './Specification.scoped.css';
 import { useEffect } from 'react';
-import { useState } from 'react';
 import { getOneProduct } from '../../../api/oneProduct';
 import { useDispatch, useSelector } from 'react-redux';
 

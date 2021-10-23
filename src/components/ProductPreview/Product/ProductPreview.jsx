@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineStar } from 'react-icons/ai';
 import { AiOutlineShopping, AiOutlineShareAlt } from 'react-icons/ai';
 import './ProductPreview.scoped.css';
 import QtyButton from './QtyButton/QtyButton';
-import { Container } from 'react-bootstrap';
+
 import { getOneProduct } from '../../../api/oneProduct';
-import { useLocation } from 'react-router';
+
 import { useParams } from 'react-router';
 import ReactImageMagnify from 'react-image-magnify';
 import useClipboard from 'react-use-clipboard';

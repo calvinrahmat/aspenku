@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { priceHigh } from '../helpers/sortFunction';
 
 export const getOneProduct = createAsyncThunk(
 	'product/getOneProduct',
