@@ -1,0 +1,21 @@
+.wrapper {
+	padding: 10px;
+	border-radius: 3px;
+	min-height: 40vh;
+	border: 1px solid #eaeaea;
+}
+
+.title {
+	padding-left: 20px;
+	width: 100%;
+	background-color: #f2f8ff;
+}
+
+h1 {
+	font-size: 1.5rem;
+}
+
+.paragraph {
+	padding-left: 20px;
+	min-height: 20vh;
+}

@@ -18,14 +18,7 @@ const ProductCards = () => {
 	const renderCard = (card) => {
 		return (
 			<Col key={card.id}>
-				<h1>
-					{console.log(
-						card.SpreeProductImages[0]
-							? card.SpreeProductImages[0].thumbnail_image
-							: ''
-					)}
-				</h1>
-				<motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+				<motion.div whileHover={{ scale: 1.1 }}>
 					<Card className="box">
 						<Card.Img
 							className="img skeleton"

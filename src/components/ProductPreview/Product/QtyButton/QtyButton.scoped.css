@@ -1,0 +1,41 @@
+.qty-wrapper {
+	display: flex;
+	width: 200px;
+	height: 40px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.btn-wrapper {
+	width: 160px;
+	height: 40px;
+	display: flex;
+	border: 1px solid grey;
+	border-radius: 3px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.plus-btn-box {
+	border-style: none;
+	background-color: white;
+	width: 40px;
+	display: flex;
+	justify-content: center;
+}
+
+.plus-btn-box:hover {
+	cursor: pointer;
+}
+
+.min-btn-box {
+	border-style: none;
+	background-color: white;
+	width: 40px;
+	display: flex;
+	justify-content: center;
+}
+
+.min-btn-box:hover {
+	cursor: pointer;
+}

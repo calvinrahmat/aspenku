@@ -1,0 +1,29 @@
+.wrapper {
+	width: 70vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1200px;
+	margin-top: 10rem;
+}
+
+.top {
+	width: 100%;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.product-preview {
+	width: 50%;
+}
+
+.store {
+	width: 30%;
+}
+
+.bottom {
+	margin-top: 20px;
+}
