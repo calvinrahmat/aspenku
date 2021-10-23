@@ -1,6 +1,6 @@
 import { Card, Col, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import './ProductCard.css';
+import './ProductCard.scoped.css';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -76,9 +76,7 @@ const ProductCards = () => {
 	return (
 		<>
 			<Container className="products">
-				<h1>New</h1>
-
-				<h2>You’ve never seen it before!</h2>
+				<h1>Recommendations</h1>
 				<div className="grid">{rows ? rows.map(renderCard) : ''}</div>
 			</Container>
 		</>

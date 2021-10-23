@@ -1,10 +1,10 @@
 import './App.css';
-import ProductCards from './components/Card.jsx/ProductCards';
+import Home from './pages/HomePage/Home';
 
 function App() {
 	return (
 		<>
-			<ProductCards />
+			<Home />
 		</>
 	);
 }
