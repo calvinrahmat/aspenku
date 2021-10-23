@@ -35,6 +35,7 @@ const ProductCards = () => {
 				<motion.div whileHover={{ scale: 1.1 }}>
 					<Card className="box">
 						{/* <Link to={`/product-detail/${encodeURIComponent(card.name)}`}> */}
+
 						<Link to={`/product-detail/${card.id}`}>
 							<Card.Img
 								className="img skeleton"
