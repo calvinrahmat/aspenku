@@ -28,12 +28,6 @@ const Sort = () => {
 					<Dropdown.Item onClick={priceHighToLow}>
 						Harga: tinggi ke rendah
 					</Dropdown.Item>
-					<Dropdown.Item onClick={priceLowToHigh}>
-						Price Low To High
-					</Dropdown.Item>
-					<Dropdown.Item onClick={priceHighToLow}>
-						Price High To Low
-					</Dropdown.Item>
 				</Dropdown.Menu>
 			</Dropdown>
 		</div>
