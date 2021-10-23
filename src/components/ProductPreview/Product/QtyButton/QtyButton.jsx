@@ -2,13 +2,13 @@ import React from 'react';
 import './QtyButton.scoped.css';
 import { useState } from 'react';
 
-const QtyButton = () => {
+const QtyButton = ({ min_qty_order }) => {
 	const [count, setCount] = useState(1);
 	const addQty = () => {
 		setCount((prevCount) => prevCount + 1);
 	};
 	const reduceQty = () => {
-		if (count > 1) setCount((prevCount) => prevCount - 1);
+		if (count > min_qty_order) setCount((prevCount) => prevCount - 1);
 	};
 	return (
 		<div>

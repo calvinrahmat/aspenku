@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { priceHigh } from '../helpers/sortFunction';
 
 export const getProduct = createAsyncThunk(
 	'product/getProduct',
@@ -19,7 +18,6 @@ export const getProduct = createAsyncThunk(
 			if (response.ok) {
 				throw new Error('error');
 			}
-			data.sort(priceHigh);
 			return data;
 		} else if (key) {
 			const response = await axios.get(

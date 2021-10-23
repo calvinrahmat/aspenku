@@ -3,15 +3,18 @@ import './Navbar.scoped.css';
 import SearchBar from './SearchBar/SearchBar';
 import logo from '../../asset/images/aspenku.jpg';
 import Sort from './Sort/Sort';
+import { Link } from 'react-router-dom';
 
 const NavbarHeader = () => {
 	return (
 		<div>
 			<div className="wrapper">
-				<div className="brand">
-					<img src={logo} alt="logo" className="logo" />
-					Aspenku
-				</div>
+				<Link to="/">
+					<div className="brand">
+						<img src={logo} alt="logo" className="logo" />
+						Aspenku
+					</div>
+				</Link>
 				<div className="search-bar">
 					<SearchBar />
 				</div>

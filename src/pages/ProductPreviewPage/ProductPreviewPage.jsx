@@ -5,7 +5,7 @@ import Specification from '../../components/ProductPreview/Specification/Specifi
 import Store from '../../components/ProductPreview/Store/Store';
 import './ProductPreviewPage.scoped.css';
 
-const productPreviewPage = () => {
+const ProductPreviewPage = () => {
 	return (
 		<div>
 			<NavbarHeader />
@@ -26,4 +26,4 @@ const productPreviewPage = () => {
 	);
 };
 
-export default productPreviewPage;
+export default ProductPreviewPage;

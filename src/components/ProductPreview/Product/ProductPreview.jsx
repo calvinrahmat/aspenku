@@ -1,33 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProduct } from '../../../api/productDetail';
 import { AiOutlineStar } from 'react-icons/ai';
-import { AiOutlineShopping } from 'react-icons/ai';
+import { AiOutlineShopping, AiOutlineShareAlt } from 'react-icons/ai';
 import './ProductPreview.scoped.css';
 import QtyButton from './QtyButton/QtyButton';
 import { Container } from 'react-bootstrap';
+import { getOneProduct } from '../../../api/oneProduct';
+import { useLocation } from 'react-router';
+import { useParams } from 'react-router';
+
+import useClipboard from 'react-use-clipboard';
 
 const ProductPreview = () => {
+	let { name } = useParams();
+
+	const [isCopied, setCopied] = useClipboard(window.location.href);
+
 	const dispatch = useDispatch();
-
 	useEffect(() => {
-		dispatch(getProduct());
-	});
+		dispatch(getOneProduct(name));
+	}, [dispatch, name]);
+	useEffect(() => {
+		if (isCopied) {
+			alert('link berhasil disalin');
+		}
+	}, [isCopied]);
 
-	const { rows } = useSelector((state) => state.products.list);
+	const data = useSelector((state) => state.product.list);
 
 	return (
 		<div>
 			<div className="wrapper">
 				<div className="photo-box">
 					<img
-						src="https://apis-dev.aspenku.com/product/thumbnail/1630985443XM.jpg"
-						alt=""
+						src={`https://apis-dev.aspenku.com${
+							data.SpreeProductImages
+								? data.SpreeProductImages[0].thumbnail_image
+								: ''
+						}`}
+						alt="product photos"
 					/>
+					<button className="share-btn" onClick={setCopied}>
+						<AiOutlineShareAlt /> Share
+					</button>
 				</div>
 				<div className="detail-product">
-					<h1>Syngonium White Splash</h1>
+					<h1>{data.name}</h1>
 					<div className="stars">
 						<AiOutlineStar />
 						<AiOutlineStar />
@@ -35,16 +54,16 @@ const ProductPreview = () => {
 						<AiOutlineStar />
 						<AiOutlineStar />
 					</div>
-					<div className="price">$ 120.00 / unit</div>
+					<div className="price">$ {data.sell_price} / unit</div>
 					<div className="qty">
-						<QtyButton />
+						<QtyButton min_qty_order={data.min_qty_order} />
 					</div>
 					<div className="spec">
 						<ul>
-							<li>Minimum order</li>
-							<li>Products in Stock</li>
-							<li>Sold Product</li>
-							<li>Product Weight</li>
+							<li>Minimum order : {data.min_qty_order}</li>
+							<li>Products in Stock : {data.stock_on_hand}</li>
+							<li>Sold Product : {data.sold}</li>
+							<li>Product Weight : {data.weight} </li>
 						</ul>
 					</div>
 					<div className="buttons">

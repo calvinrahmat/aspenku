@@ -1,6 +1,4 @@
 import './App.css';
-import Home from './pages/HomePage/Home';
-import ProductPreviewPage from './pages/ProductPreviewPage/ProductPreviewPage';
 import SearchPage from './pages/SearchPage/SearchPage';
 import {
 	BrowserRouter as Router,
@@ -8,13 +6,21 @@ import {
 	Route,
 	Redirect,
 } from 'react-router-dom';
+import { Home, ProductPreviewPage } from './pages';
 
 function App() {
 	return (
 		<>
-			{/* <Home /> */}
-			<SearchPage />
-			{/* <ProductPreviewPage /> */}
+			<Router>
+				<Switch>
+					<Route exact path="/" render={() => <Home />} />
+					<Route
+						exact
+						path="/product-detail/:name"
+						render={() => <ProductPreviewPage />}
+					/>
+				</Switch>
+			</Router>
 		</>
 	);
 }

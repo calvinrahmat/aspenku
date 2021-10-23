@@ -8,39 +8,44 @@ import NumberFormat from 'react-number-format';
 import { motion } from 'framer-motion';
 import { getProduct } from '../../api/productDetail.js';
 import { priceHigh, priceLow } from '../../helpers/sortFunction';
-import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductCards = () => {
 	const dispatch = useDispatch();
 	const { key } = useSelector((state) => state.search);
 	const { sort } = useSelector((state) => state.sort);
-	const [data, setData] = useState('');
-
+	const onClick = (e) => {
+		console.log(e);
+	};
 	useEffect(() => {
-		if (sort === 'priceHighToLow') {
-			dispatch(getProduct(key, 'priceHigh'));
-		} else if (sort === 'priceLowToHigh') {
-			dispatch(getProduct(key, 'priceLow'));
-		} else {
-			dispatch(getProduct(key));
-		}
-	}, [dispatch, sort, key]);
-	const { rows } = useSelector((state) => state.products.list);
-	console.log(rows);
+		dispatch(getProduct(key));
+	}, [dispatch, key]);
+	const data = useSelector((state) => state.products.list.rows);
+	const data2 = data ? [...data] : [];
+	if (sort === 'priceLowToHigh') {
+		data2.sort(priceLow);
+	}
+	if (sort === 'priceHighToLow') {
+		data2.sort(priceHigh);
+	}
+
 	const renderCard = (card) => {
 		return (
 			<Col key={card.id}>
 				<motion.div whileHover={{ scale: 1.1 }}>
 					<Card className="box">
-						<Card.Img
-							className="img skeleton"
-							variant="top"
-							src={`https://apis-dev.aspenku.com${
-								card.SpreeProductImages[0]
-									? card.SpreeProductImages[0].thumbnail_image
-									: ''
-							}`}
-						/>
+						{/* <Link to={`/product-detail/${encodeURIComponent(card.name)}`}> */}
+						<Link to={`/product-detail/${card.id}`}>
+							<Card.Img
+								className="img skeleton"
+								variant="top"
+								src={`https://apis-dev.aspenku.com${
+									card.SpreeProductImages[0]
+										? card.SpreeProductImages[0].thumbnail_image
+										: ''
+								}`}
+							/>
+						</Link>
 
 						<Card.Body className="cardBody">
 							<Card.Title
@@ -82,7 +87,7 @@ const ProductCards = () => {
 		<>
 			<Container className="products">
 				<h1>Products</h1>
-				<div className="grid">{rows ? rows.map(renderCard) : ''}</div>
+				<div className="grid">{data2.map(renderCard)}</div>
 			</Container>
 		</>
 	);
