@@ -9,7 +9,7 @@ import { Container } from 'react-bootstrap';
 import { getOneProduct } from '../../../api/oneProduct';
 import { useLocation } from 'react-router';
 import { useParams } from 'react-router';
-
+import ReactImageMagnify from 'react-image-magnify';
 import useClipboard from 'react-use-clipboard';
 
 const ProductPreview = () => {
@@ -33,14 +33,29 @@ const ProductPreview = () => {
 		<div>
 			<div className="wrapper">
 				<div className="photo-box">
-					<img
-						src={`https://apis-dev.aspenku.com${
-							data.SpreeProductImages
-								? data.SpreeProductImages[0].thumbnail_image
-								: ''
-						}`}
-						alt="product photos"
+					<ReactImageMagnify
+						{...{
+							smallImage: {
+								alt: 'Wristwatch by Ted Baker London',
+								isFluidWidth: true,
+								src: `https://apis-dev.aspenku.com${
+									data.SpreeProductImages
+										? data.SpreeProductImages[0].thumbnail_image
+										: ''
+								}`,
+							},
+							largeImage: {
+								src: `https://apis-dev.aspenku.com${
+									data.SpreeProductImages
+										? data.SpreeProductImages[0].thumbnail_image
+										: ''
+								}`,
+								width: 1200,
+								height: 1800,
+							},
+						}}
 					/>
+
 					<button className="share-btn" onClick={setCopied}>
 						<AiOutlineShareAlt /> Share
 					</button>

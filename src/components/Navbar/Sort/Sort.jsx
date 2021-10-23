@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { FaFilter } from 'react-icons/fa';
 import './Sort.scoped.css';
 import { Dropdown } from 'react-bootstrap';
 import { DropdownButton } from 'react-bootstrap';
@@ -17,14 +17,25 @@ const Sort = () => {
 
 	return (
 		<div>
-			<DropdownButton id="dropdown" className="dropdown" title="Sort">
-				<Dropdown.Item onClick={priceLowToHigh}>
-					Price Low To High
-				</Dropdown.Item>
-				<Dropdown.Item onClick={priceHighToLow} href="#/action-1">
-					Price High To Low
-				</Dropdown.Item>
-			</DropdownButton>
+			<Dropdown>
+				<Dropdown.Toggle variant="none" style={{ background: 'white' }}>
+					Sort
+				</Dropdown.Toggle>
+				<Dropdown.Menu>
+					<Dropdown.Item onClick={priceLowToHigh}>
+						Harga: rendah ke tinggi
+					</Dropdown.Item>
+					<Dropdown.Item onClick={priceHighToLow}>
+						Harga: tinggi ke rendah
+					</Dropdown.Item>
+					<Dropdown.Item onClick={priceLowToHigh}>
+						Price Low To High
+					</Dropdown.Item>
+					<Dropdown.Item onClick={priceHighToLow}>
+						Price High To Low
+					</Dropdown.Item>
+				</Dropdown.Menu>
+			</Dropdown>
 		</div>
 	);
 };

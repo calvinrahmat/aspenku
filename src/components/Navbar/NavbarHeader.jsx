@@ -9,7 +9,7 @@ const NavbarHeader = () => {
 	return (
 		<div>
 			<div className="wrapper">
-				<Link to="/">
+				<Link to="/" style={{ textDecoration: 'none' }}>
 					<div className="brand">
 						<img src={logo} alt="logo" className="logo" />
 						Aspenku
