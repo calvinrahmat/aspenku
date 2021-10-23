@@ -3,3 +3,8 @@
 	display: flex;
 	font-size: 32px;
 }
+
+.search-icon {
+	background-color: white;
+	border: none;
+}

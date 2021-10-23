@@ -2,6 +2,7 @@ import React from 'react';
 import './Navbar.scoped.css';
 import SearchBar from './SearchBar/SearchBar';
 import logo from '../../asset/images/aspenku.jpg';
+import Sort from './Sort/Sort';
 
 const NavbarHeader = () => {
 	return (
@@ -13,6 +14,9 @@ const NavbarHeader = () => {
 				</div>
 				<div className="search-bar">
 					<SearchBar />
+				</div>
+				<div className="sort-btn">
+					<Sort />
 				</div>
 			</div>
 		</div>

@@ -7,14 +7,26 @@ import { useDispatch } from 'react-redux';
 import NumberFormat from 'react-number-format';
 import { motion } from 'framer-motion';
 import { getProduct } from '../../api/productDetail.js';
+import { priceHigh, priceLow } from '../../helpers/sortFunction';
+import { useState } from 'react';
 
 const ProductCards = () => {
 	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(getProduct());
-	}, [dispatch]);
-	const { rows } = useSelector((state) => state.products.list);
+	const { key } = useSelector((state) => state.search);
+	const { sort } = useSelector((state) => state.sort);
+	const [data, setData] = useState('');
 
+	useEffect(() => {
+		if (sort === 'priceHighToLow') {
+			dispatch(getProduct(key, 'priceHigh'));
+		} else if (sort === 'priceLowToHigh') {
+			dispatch(getProduct(key, 'priceLow'));
+		} else {
+			dispatch(getProduct(key));
+		}
+	}, [dispatch, sort, key]);
+	const { rows } = useSelector((state) => state.products.list);
+	console.log(rows);
 	const renderCard = (card) => {
 		return (
 			<Col key={card.id}>
@@ -69,7 +81,7 @@ const ProductCards = () => {
 	return (
 		<>
 			<Container className="products">
-				<h1>Recommendations</h1>
+				<h1>Products</h1>
 				<div className="grid">{rows ? rows.map(renderCard) : ''}</div>
 			</Container>
 		</>

@@ -19,3 +19,8 @@
 input:focus {
 	outline: none !important;
 }
+
+.search-btn {
+	border: none;
+	background-color: white;
+}
